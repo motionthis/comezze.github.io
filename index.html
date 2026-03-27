@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comezze — Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:      #F7F3EC;
+      --bark:       #2C1F0E;
+      --sage:       #7A9E7E;
+      --terracotta: #C4623A;
+      --white:      #FFFFFF;
+    }
+
+    body {
+      background: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      color: var(--bark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 3rem;
+      border-bottom: 1px solid rgba(44,31,14,0.1);
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .logo .co    { color: var(--bark); }
+    .logo .mezze { color: var(--terracotta); }
+    .nav-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      font-weight: 500;
+    }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 5rem 2rem 5rem;
+    }
+
+    /* HEADER BLOCK */
+    .contact-header {
+      text-align: center;
+      max-width: 580px;
+      margin-bottom: 3rem;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 1.2rem;
+    }
+    .contact-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.1rem;
+    }
+    .contact-header h1 em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+    .contact-header p {
+      font-size: 0.98rem;
+      line-height: 1.8;
+      opacity: 0.65;
+      margin-bottom: 1.6rem;
+    }
+    .email-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .email-line .el-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.4;
+    }
+    .email-line .el-val {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    /* DIVIDER */
+    .divider {
+      width: 100%;
+      max-width: 620px;
+      height: 1px;
+      background: rgba(44,31,14,0.12);
+      margin-bottom: 3rem;
+    }
+
+    /* FORM */
+    form {
+      width: 100%;
+      max-width: 620px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.45rem; }
+
+    label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--bark);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--white);
+      border: 1.5px solid rgba(44,31,14,0.18);
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--bark);
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s;
+      -webkit-appearance: none;
+    }
+    input::placeholder, textarea::placeholder { color: rgba(44,31,14,0.35); }
+    input:focus, textarea:focus {
+      border-color: var(--sage);
+      box-shadow: 0 0 0 3px rgba(122,158,126,0.14);
+    }
+    textarea { min-height: 150px; resize: vertical; }
+
+    /* CHIPS */
+    .chip-group { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.2rem; }
+    .chip-inp   { display: none; }
+    .chip-lbl {
+      padding: 0.4rem 1rem;
+      border: 1.5px solid rgba(44,31,14,0.22);
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+      background: var(--white);
+      color: var(--bark);
+    }
+    .chip-inp:checked + .chip-lbl { background: var(--bark); color: var(--cream); border-color: var(--bark); }
+    .chip-lbl:hover { border-color: var(--terracotta); color: var(--terracotta); }
+    .chip-inp:checked + .chip-lbl:hover { background: var(--terracotta); border-color: var(--terracotta); color: var(--white); }
+
+    /* SUBMIT */
+    .submit-btn {
+      align-self: center;
+      background: var(--bark);
+      color: var(--cream);
+      border: none;
+      padding: 0.9rem 2.8rem;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.12s;
+      margin-top: 0.3rem;
+    }
+    .submit-btn:hover { background: var(--terracotta); transform: translateY(-2px); }
+    .submit-btn:active { transform: translateY(0); }
+
+    /* SUCCESS */
+    #success-msg {
+      display: none;
+      max-width: 620px;
+      width: 100%;
+      background: #EEF3EE;
+      border: 1.5px solid var(--sage);
+      border-radius: 14px;
+      padding: 2.4rem;
+      text-align: center;
+    }
+    #success-msg h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 0.5rem; }
+    #success-msg p  { font-size: 0.92rem; opacity: 0.7; line-height: 1.7; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(44,31,14,0.1);
+      padding: 1.8rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer .logo { font-size: 1.2rem; }
+    footer p { font-size: 0.76rem; opacity: 0.35; letter-spacing: 0.05em; }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-tag { display: none; }
+      main { padding: 3rem 1.4rem; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { padding: 1.6rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo"><span class="co">co</span><span class="mezze">mezze</span></a>
+  <span class="nav-tag">Organic &amp; Real</span>
+</nav>
+
+<main>
+  <div class="contact-header">
+    <span class="section-label">Get in touch</span>
+    <h1>Thanks for the <em>stop by.</em></h1>
+    <p>Whether you want to become a tester, leave a review, share feedback, or simply say hello — we're glad you're here. We read every message personally.</p>
+    <div class="email-line">
+      <span class="el-label">Email</span>
+      <span class="el-val">hello@comezze.com</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <form id="contact-form"
+        action="https://formsubmit.co/YOUR@EMAIL.COM"
+        method="POST">
+    <input type="hidden" name="_subject" value="New Comezze Message" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_next" value="https://comezze.com/?thanks=1" />
+    <input type="text" name="_honey" style="display:none" />
+
+    <div class="form-row">
+      <div class="form-field">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+      </div>
+      <div class="form-field">
+        <label for="phone">Phone (optional)</label>
+        <input type="tel" id="phone" name="phone" placeholder="+1 555 000 0000" />
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="jane@email.com" required />
+    </div>
+
+    <div class="form-field">
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" placeholder="e.g. I'd love to be a tester" required />
+    </div>
+
+    <div class="form-field">
+      <label>I'm here to…</label>
+      <div class="chip-group">
+        <input class="chip-inp" type="checkbox" id="c1" name="interest" value="Become a tester" />
+        <label class="chip-lbl" for="c1">Become a tester</label>
+
+        <input class="chip-inp" type="checkbox" id="c2" name="interest" value="Leave a review" />
+        <label class="chip-lbl" for="c2">Leave a review</label>
+
+        <input class="chip-inp" type="checkbox" id="c3" name="interest" value="Product feedback" />
+        <label class="chip-lbl" for="c3">Product feedback</label>
+
+        <input class="chip-inp" type="checkbox" id="c4" name="interest" value="Collaborate" />
+        <label class="chip-lbl" for="c4">Collaborate</label>
+
+        <input class="chip-inp" type="checkbox" id="c5" name="interest" value="Just saying hi" />
+        <label class="chip-lbl" for="c5">Just saying hi</label>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="message">Message</label>
+      <textarea id="message" name="message"
+        placeholder="Tell us a bit about yourself and what's on your mind…" required></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Send message →</button>
+  </form>
+
+  <div id="success-msg">
+    <h3>Thank you 🌿</h3>
+    <p>We received your message and will reply personally. If you signed up as a tester, keep an eye on your inbox.</p>
+  </div>
+</main>
+
+<footer>
+  <a href="#" class="logo"><span class="co">co</span><span class="mezze">mezze</span></a>
+  <p>© 2025 Comezze · comezze.com</p>
+</footer>
+
+<script>
+  if (location.search.includes('thanks=1')) {
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+  }
+</script>
+</body>
+</html>
