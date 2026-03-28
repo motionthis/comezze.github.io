@@ -9,11 +9,11 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream:      #F7F3EC;
-      --bark:       #2C1F0E;
+      --cream:      #CBFBD0;
+      --bark:       #0C2D19;
       --sage:       #7A9E7E;
-      --terracotta: #C4623A;
-      --white:      #FFFFFF;
+      --terracotta: #E83816;
+      --white:      #FAFFFB;
     }
 
     body {
@@ -32,7 +32,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 1.4rem 3rem;
-      border-bottom: 1px solid rgba(44,31,14,0.1);
+      border-bottom: 1px solid rgba(12,45,25,0.12);
     }
     .logo {
       font-family: 'Playfair Display', serif;
@@ -45,11 +45,12 @@
     .logo .co    { color: var(--bark); }
     .logo .mezze { color: var(--terracotta); }
     .nav-tag {
-      font-size: 0.72rem;
+      font-size: 0.86rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--sage);
-      font-weight: 500;
+      color: var(--bark);
+      opacity: 0.55;
+      font-weight: 800;
     }
 
     /* MAIN */
@@ -64,21 +65,21 @@
     /* HEADER BLOCK */
     .contact-header {
       text-align: center;
-      max-width: 580px;
+      max-width: 620px;
       margin-bottom: 3rem;
     }
     .section-label {
-      font-size: 0.7rem;
+      font-size: 0.78rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--terracotta);
-      font-weight: 500;
+      font-weight: 700;
       display: block;
       margin-bottom: 1.2rem;
     }
     .contact-header h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
       font-weight: 700;
       line-height: 1.15;
       letter-spacing: -0.01em;
@@ -89,26 +90,27 @@
       color: var(--terracotta);
     }
     .contact-header p {
-      font-size: 0.98rem;
-      line-height: 1.8;
-      opacity: 0.65;
+      font-size: 1.05rem;
+      line-height: 1.2;
+      opacity: 0.75;
+      font-weight: 500;
       margin-bottom: 1.6rem;
     }
     .email-line {
       display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
+      align-items: baseline;
+      gap: 0.5rem;
     }
     .email-line .el-label {
-      font-size: 0.68rem;
-      font-weight: 500;
+      font-size: 0.78rem;
+      font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      opacity: 0.4;
+      opacity: 0.5;
     }
     .email-line .el-val {
-      font-size: 1rem;
-      font-weight: 500;
+      font-size: 1.05rem;
+      font-weight: 600;
     }
 
     /* DIVIDER */
@@ -116,7 +118,7 @@
       width: 100%;
       max-width: 620px;
       height: 1px;
-      background: rgba(44,31,14,0.12);
+      background: rgba(12,45,25,0.15);
       margin-bottom: 3rem;
     }
 
@@ -143,7 +145,7 @@
       width: 100%;
       padding: 0.85rem 1rem;
       background: var(--white);
-      border: 1.5px solid rgba(44,31,14,0.18);
+      border: 1.5px solid rgba(12,45,25,0.2);
       border-radius: 10px;
       font-family: 'DM Sans', sans-serif;
       font-size: 0.95rem;
@@ -153,11 +155,26 @@
       transition: border-color 0.18s, box-shadow 0.18s;
       -webkit-appearance: none;
     }
-    input::placeholder, textarea::placeholder { color: rgba(44,31,14,0.35); }
+    input::placeholder, textarea::placeholder { color: rgba(12,45,25,0.35); }
     input:focus, textarea:focus {
-      border-color: var(--sage);
-      box-shadow: 0 0 0 3px rgba(122,158,126,0.14);
+      border-color: var(--terracotta);
+      box-shadow: 0 0 0 3px rgba(232,56,22,0.1);
     }
+
+    /* Email validation */
+    input[type="email"].invalid {
+      border-color: var(--terracotta);
+      box-shadow: 0 0 0 3px rgba(232,56,22,0.1);
+    }
+    .email-hint {
+      font-size: 0.78rem;
+      color: var(--terracotta);
+      font-weight: 500;
+      display: none;
+      margin-top: 0.2rem;
+    }
+    .email-hint.visible { display: block; }
+
     textarea { min-height: 150px; resize: vertical; }
 
     /* CHIPS */
@@ -165,7 +182,7 @@
     .chip-inp   { display: none; }
     .chip-lbl {
       padding: 0.4rem 1rem;
-      border: 1.5px solid rgba(44,31,14,0.22);
+      border: 1.5px solid rgba(12,45,25,0.22);
       border-radius: 100px;
       font-family: 'DM Sans', sans-serif;
       font-size: 0.8rem;
@@ -203,7 +220,7 @@
       display: none;
       max-width: 620px;
       width: 100%;
-      background: #EEF3EE;
+      background: rgba(12,45,25,0.08);
       border: 1.5px solid var(--sage);
       border-radius: 14px;
       padding: 2.4rem;
@@ -214,7 +231,7 @@
 
     /* FOOTER */
     footer {
-      border-top: 1px solid rgba(44,31,14,0.1);
+      border-top: 1px solid rgba(12,45,25,0.12);
       padding: 1.8rem 3rem;
       display: flex;
       justify-content: space-between;
@@ -239,13 +256,13 @@
 
 <nav>
   <a href="#" class="logo"><span class="co">co</span><span class="mezze">mezze</span></a>
-  <span class="nav-tag">Organic &amp; Real</span>
+  <span class="nav-tag">Coming Soon</span>
 </nav>
 
 <main>
   <div class="contact-header">
     <span class="section-label">Get in touch</span>
-    <h1>Thanks for the <em>stop by.</em></h1>
+    <h1>Thanks for the <em style="font-weight:700;">stop by.</em></h1>
     <p>Whether you want to become a tester, leave a review, share feedback, or simply say hello — we're glad you're here. We read every message personally.</p>
     <div class="email-line">
       <span class="el-label">Email:</span>
@@ -278,6 +295,7 @@
     <div class="form-field">
       <label for="email">Email Address</label>
       <input type="email" id="email" name="email" placeholder="jane@email.com" required />
+      <span class="email-hint" id="email-hint"></span>
     </div>
 
     <div class="form-field">
@@ -325,4 +343,45 @@
   <p>© 2025 Comezze · comezze.com</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></
+<script>
+  if (location.search.includes('thanks=1')) {
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+  }
+
+  // Email validation
+  const emailInput = document.getElementById('email');
+  const emailHint  = document.getElementById('email-hint');
+
+  const commonDomains = ['gmail.com','yahoo.com','hotmail.com','outlook.com','icloud.com','me.com','aol.com','protonmail.com','comezze.com'];
+  const domainTypos   = { 'gmial.com':'gmail.com','gmai.com':'gmail.com','gmil.com':'gmail.com','yahooo.com':'yahoo.com','yaho.com':'yahoo.com','hotmial.com':'hotmail.com','hotmai.com':'hotmail.com','outlok.com':'outlook.com' };
+
+  function validateEmail(val) {
+    if (!val) { clearHint(); return; }
+    const parts = val.split('@');
+    if (parts.length !== 2) { showHint('Please include an @ in your email address.'); return; }
+    const domain = parts[1].toLowerCase();
+    if (!domain) { showHint('Please enter the part after @.'); return; }
+    if (!domain.includes('.')) { showHint('Your email is missing a domain ending like .com or .net.'); return; }
+    const ext = domain.split('.').pop();
+    if (!ext || ext.length < 2) { showHint('Please check your email — the ending looks incomplete.'); return; }
+    if (domainTypos[domain]) { showHint('Did you mean ' + parts[0] + '@' + domainTypos[domain] + '?'); return; }
+    clearHint();
+  }
+
+  function showHint(msg) {
+    emailHint.textContent = msg;
+    emailHint.classList.add('visible');
+    emailInput.classList.add('invalid');
+  }
+  function clearHint() {
+    emailHint.textContent = '';
+    emailHint.classList.remove('visible');
+    emailInput.classList.remove('invalid');
+  }
+
+  emailInput.addEventListener('blur',  () => validateEmail(emailInput.value.trim()));
+  emailInput.addEventListener('input', () => { if (emailHint.classList.contains('visible')) validateEmail(emailInput.value.trim()); });
+</script>
+</body>
+</html>
